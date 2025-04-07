@@ -13,7 +13,8 @@ function App() {
   const ws = useRef(null);
 
   useEffect(() => {
-    ws.current = new WebSocket("wss://websocket-backend.onrender.com/ws/" + conversationId);
+    // ✅ Connect to local backend
+    ws.current = new WebSocket("ws://localhost:8000/ws/" + conversationId);
 
     ws.current.onopen = () => {
       console.log("✅ WebSocket connected");
